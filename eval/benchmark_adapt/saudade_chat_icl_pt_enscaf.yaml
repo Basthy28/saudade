@@ -1,0 +1,32 @@
+task: saudade_chat_icl_pt_enscaf
+dataset_path: json
+dataset_name: null
+dataset_kwargs:
+  data_files:
+    train: data/icl_pool_train.jsonl
+    test: data/eval/saudade_pt_eval.jsonl
+output_type: generate_until
+training_split: train
+test_split: test
+doc_to_text: 'Given the following question and two candidate answers (A and B), choose the correct answer.\nQuestion: {{prompt}}:\nA. {{facts_pair[0]}}\nB. {{facts_pair[1]}}?\nYour answer must end with "The best answer is [answer_letter]" where [answer_letter] is A or B.'
+doc_to_target: '{{"AB"[answer_index] }}'
+gen_prefix: 'The best answer is'
+num_fewshot: 3
+generation_kwargs:
+  max_gen_toks: 100
+  until:
+    - "\n\n"
+    - "."
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
+filter_list:
+  - name: remove_whitespace
+    filter:
+      - function: remove_whitespace
+      - function: take_first
+metadata:
+  version: 1.0

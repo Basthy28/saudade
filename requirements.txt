@@ -1,0 +1,28 @@
+# Core pipeline and evaluation
+numpy
+pandas
+matplotlib
+PyYAML
+orjson
+tqdm
+
+# HTTP / LLM clients
+openai
+requests
+aiohttp
+httpx
+python-dotenv
+
+# Wikipedia extraction
+beautifulsoup4
+Pillow
+
+# Model training and evaluation
+torch
+transformers
+sentencepiece
+datasets
+accelerate
+peft
+trl
+lm-eval

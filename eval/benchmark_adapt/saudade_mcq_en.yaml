@@ -1,0 +1,19 @@
+task: saudade_mcq_en
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    test: data/eval/saudade_en_eval.jsonl
+test_split: test
+output_type: multiple_choice
+doc_to_text: 'Question: {{prompt}}\nA. {{facts_pair[0]}}\nB. {{facts_pair[1]}}\nAnswer:'
+doc_to_choice: '{{facts_pair}}'
+doc_to_target: '{{answer_index}}'
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0

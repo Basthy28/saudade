@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Data and intermediate artefacts
+data/
+outputs/
+checkpoints/
+logs/
+
+# Evaluation outputs
+results/
+*.out
+*.err
+
+# Generated figures
+canonical-results/figures/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
